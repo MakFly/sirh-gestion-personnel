@@ -75,7 +75,7 @@
                         <option>Tous</option>
                         <option>Comptabilité</option>
                         <option>Ressources Humaines</option>
-                        <option>Informatique</option>
+                        <!-- <option>Informatique</option> -->
                     </select>
                 </p>
 
