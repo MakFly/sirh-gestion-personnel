@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+
+    <title>Editation Banque</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="styles.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css" />
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/js/bootstrapValidator.min.js"></script>
+
+    <script src="js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="index.html">Login</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="Edit_Banque.html">Collaborateur <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="statistique.html">Statistique</a>
+                </li>
+                <li class="nav-item">
+                    <!-- <a class="nav-link disabled" href="#">Disabled</a> -->
+                    <a class="nav-link" href="activite.html">Activité</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <span class="img"><img src="//placehold.it/300x300" alt="Movie" class="w-100" /></span><span class="right"></span>
+            </div>
+            <div class="col-md-9">
+                <form class="form-inline">
+                    <h1>NOM Prénom - MATRICULE </h1>
+                    <input class="form-check-input-edit" type="checkbox" value="">
+                    <p class="desactiver">Désactiver</p>
+                </form>
+
+
+                <form method="#">
+                    <div id="accordion" role="tablist">
+                        <div class="card_edit">
+                            <div class="card-header" role="tab" id="headingOne">
+                                <h5 class="mb-0">
+                                    <a class="collapsed" data-toggle="collapse" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                      Identité
+                                    </a>
+                                </h5>
+                            </div>
+                            <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+                                <div class="card-body">
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item">
+                                            <span class="left_add_collab">Civilité</span><span class="right"></span>
+
+                                            <select class="form-control-sm form-edit">
+                                            <option>Monsieur</option>
+                                            <option>Madame</option>
+                                        </select>
+                                            <span class="left_add_collab">Nom</span><span class="right"></span><input required type="text" class="form-controle-collab" name="nom">
+                                            <span class="left_add_collab">Prénom</span><span class="right"></span><input required type="text" class="form-controle-collab" name="prenom">
+                                            <span class="left_add_collab">Date de naissance</span><span class="right"></span><input required type="text" class="form-controle-collab" name="dtn">
+                                            <span class="left_add_collab">Adresse</span><span class="right"></span><textarea required class="form-controle-collab"></textarea>
+                                            <span class="left_add_collab">Numéro de sécurité sociale</span><span class="right"></span><input required type="text" class="form-controle-collab" name="secu">
+                                            <span class="left_add_collab">Téléphone</span><span class="right"></span><input required type="text" class="form-controle-collab" name="secu">
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--  -->
+                        <div class="card_edit">
+                            <div class="card-header" role="tab" id="headingTwo">
+                                <h5 class="mb-0">
+                                    <a class="collapsed" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        Poste
+                                      </a>
+                                </h5>
+                            </div>
+                            <div id="collapseTwo" class="collapse show" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
+                                <div class="card-body">
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item">
+                                            <span class="left_add_collab">Département</span><span class="right"></span>
+
+                                            <select class="form-control-sm form-edit">
+                                                            <option>76</option>
+                                                            <option>971</option>
+                                                        </select>
+                                            <span class="left_add_collab">Nom</span><span class="right"></span><input required type="text" class="form-controle-collab" name="nom">
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--  -->
+                        <div class="card_edit">
+                            <div class="card-header" role="tab" id="headingTree">
+                                <h5 class="mb-0">
+                                    <a class="collapsed" data-toggle="collapse" href="#collapseTree" aria-expanded="false" aria-controls="collapseTree">
+                                  Coordonnées bancaire
+                                </a>
+                                </h5>
+                            </div>
+                            <div id="collapseTree" class="collapse" role="tabpanel" aria-labelledby="headingTree" data-parent="#accordion">
+                                <div class="card-body">
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item">
+                                            <span class="left_add_collab">IBAN</span><span class="right"></span><input required type="text" class="form-controle-collab" name="IBAN">
+                                            <span class="left_add_collab">BIC</span><span class="right"></span><input required type="text" class="form-controle-collab" name="BIC">
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label"></label>
+                        <div class="col-md-4">
+                            <button type="submit" class="btn btn-primary btn_add_banque" id="myBtn">Sauvegarder</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+
+        </div>
+    </div>
+    </div>
+    <!-- /.container -->
+</body>
+
+</html>

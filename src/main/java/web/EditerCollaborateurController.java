@@ -25,7 +25,8 @@ public class EditerCollaborateurController extends HttpServlet {
 		
 		if(matricule.isEmpty() && titre.isEmpty() && nom.isEmpty() && prenom.isEmpty())
 		{
-			resp.getWriter().write("Erreur 400 - Paramètre incorrect"
+			resp.setStatus(400);
+			resp.getWriter().write("Paramètre incorrect"
 					+"<ul>"
 					+ "<li>matricule</li>"
 					+ "<li>titre	</li>"
