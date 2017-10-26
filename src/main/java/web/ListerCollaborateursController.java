@@ -21,10 +21,10 @@ public class ListerCollaborateursController extends HttpServlet {
 		String departementParam = req.getParameter("departement");
 		resp.setContentType("text/html");
 		// code HTML ecrit dans le corps de la reponse
-		resp.getWriter().write("<h1>Liste des collaborateurs</h1>"
-				+ "<ul>"
-				+ "<li>avecPhoto="+ avecPhotoParam + "</li>"
-				+ "<li>departement="+ departementParam + "</li>"
-				+ "</ul>");
+//		resp.getWriter().write("<h1>Liste des collaborateurs</h1>"
+//				+ "<ul>"
+//				+ "<li>avecPhoto="+ avecPhotoParam + "</li>"
+//				+ "<li>departement="+ departementParam + "</li>"
+//				+ "</ul>");
 	}
 }
