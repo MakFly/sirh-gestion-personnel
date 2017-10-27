@@ -25,8 +25,15 @@ public class Collaborateur {
 	Boolean actif;
 	String intitulePoste;
 	Departement departement;
+	String banque;
+	String bic;
+	String iban;
+	String telephone;
 	
-	
+
+	/*
+	 * Constructeur sauvegarde collabo	
+	 */
 	public Collaborateur(String matricule, String nom, String prenom, LocalDate dtn, String adresse, String secu,
 			String emailPro, String photo, LocalDateTime dhc, Boolean actif) {
 		super();
@@ -40,6 +47,55 @@ public class Collaborateur {
 		this.photo = photo;
 		this.dhc = dhc;
 		this.actif = actif;
+	}
+	
+	/*
+	 * Constructeur mise à jour
+	 */
+	public Collaborateur(String matricule, String adresse, String intitulePoste, Departement departement, String banque,
+			String bic, String iban) {
+		super();
+		this.matricule = matricule;
+		this.adresse = adresse;
+		this.intitulePoste = intitulePoste;
+		this.departement = departement;
+		this.banque = banque;
+		this.bic = bic;
+		this.iban = iban;
+	}
+
+	
+
+	public String getBanque() {
+		return banque;
+	}
+
+	public void setBanque(String banque) {
+		this.banque = banque;
+	}
+
+	public String getBic() {
+		return bic;
+	}
+
+	public void setBic(String bic) {
+		this.bic = bic;
+	}
+
+	public String getIban() {
+		return iban;
+	}
+
+	public void setIban(String iban) {
+		this.iban = iban;
+	}
+
+	public String getTelephone() {
+		return telephone;
+	}
+
+	public void setTelephone(String telephone) {
+		this.telephone = telephone;
 	}
 	
 	public String getMatricule() {

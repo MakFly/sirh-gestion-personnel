@@ -4,47 +4,118 @@
 package web;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.List;
+import java.util.ResourceBundle;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import entite.Collaborateur;
+import entite.Departement;
+import service.CollaborateurService;
+import service.DepartementService;
+import util.Constantes;
+
 @SuppressWarnings("serial")
 public class EditerCollaborateurController extends HttpServlet {
+	
+	private CollaborateurService collabService 	= Constantes.COLLAB_SERVICE;
+	private DepartementService deptService		= Constantes.DEPT_SERIVCE;
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws
 	ServletException, IOException {
-		// recupere la valeur d'un parametre dont le matricule
-		String matricule 	= req.getParameter("matricule");
-		String titre 		= req.getParameter("titre");
-		String nom 			= req.getParameter("nom");
-		String prenom 		= req.getParameter("prenom");
-		resp.setContentType("text/html");
 		
+		// utilisation du service
+		List<Collaborateur> collaborateurs 	= collabService.listerCollaborateurs();
+		List<Departement> departements 		= deptService.listeDepartements();
 		
-		if(matricule.isEmpty() && titre.isEmpty() && nom.isEmpty() && prenom.isEmpty())
+		String matricule = req.getParameter("matricule");
+	
+		for (Collaborateur collaborateur : collaborateurs) 
 		{
-			resp.setStatus(400);
-			resp.getWriter().write("Paramètre incorrect"
-					+"<ul>"
-					+ "<li>matricule</li>"
-					+ "<li>titre	</li>"
-					+ "<li>nom		</li>"
-					+ "<li>prenom	</li>"
-					+ "</ul>");
-		}
-		else {
-			// code HTML ecrit dans le corps de la reponse
-			resp.getWriter().write("<h1>Editer des collaborateurs</h1>"
-					+ "<ul>"
-					+ "<li>matricule="+ matricule + "</li>"
-					+ "<li>titre	="+ titre + "</li>"
-					+ "<li>nom		="+ nom + "</li>"
-					+ "<li>prenom	="+ prenom + "</li>"
-					+ "</ul>");
+			if(collaborateur.getMatricule().equals(matricule))
+			{
+				req.setAttribute("Collab", collaborateur);
+			}
+			
 		}
 		
+		if(departements.size() == 0)
+		{
+			departements.add(new Departement(1, "Comptabilité"));
+			departements.add(new Departement(2, "Ressources Humaines"));
+			departements.add(new Departement(3, "Informatique"));
+			departements.add(new Departement(4, "Administratif"));
+		}	
+		
+		req.setAttribute("listeDept", departements);
+		req.getRequestDispatcher("/WEB-INF/views/collab/Edit_Banque.jsp")
+		.forward(req, resp);
+	}
+	
+	@SuppressWarnings("null")
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws
+	ServletException, IOException {
+		
+		/*
+		 * Instanciation du matricule pour le département
+		 */
+		String matricule	= req.getParameter("matricule");
+		
+		
+		/*
+		 * Adresse 			: adresse
+		 * intitulePoste 	: intitulePoste
+		 * nom departement 	: depart
+		 * banque			: banque
+		 * bic				: bic
+		 * iban				: iban
+		 */
+		String adresse 		= req.getParameter("adresse");
+		String intitulePoste= req.getParameter("nomDept");
+		String telephone	= req.getParameter("telephone");
+		String bic			= req.getParameter("bic");
+		String iban			= req.getParameter("iban");
+		
+		Departement depart 	= new Departement(0, req.getParameter("poste"));
+		
+		/*
+		 * Test si les champs ne sont pas vide lors de l'update
+		 */
+		String message ="";
+		
+		if(matricule.isEmpty() || adresse.isEmpty() )
+		{
+			resp.sendError(400);
+		}
+		else
+		{
+			message = "Collaborateur mis à jour avec succès";
+		}
+		
+//		Collaborateur collaborateur = new Collaborateur(matricule, adresse, intitulePoste, depart, null, null, null);
+		
+		for (Collaborateur collab: collabService.listerCollaborateurs()) {
+			if (collab.getMatricule().equals(matricule)) {
+				collab.setAdresse(adresse);
+				collab.setIntitulePoste(intitulePoste);
+				collab.setDepartement(depart);
+				collab.setTelephone(telephone);
+				collab.setBic(bic);
+				collab.setIban(iban);
+			}
+		}
+				
+		
+		/* Transmission à la page JSP en charge de l'affichage des données */		
+		
+		resp.sendRedirect("lister");
 		
 	}
 }

@@ -36,7 +36,6 @@ public class AjouterCollaborateursController extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws
 	ServletException, IOException {
 		
-		
 		/*
 		 * variable + 1 et non ++
 		 */
@@ -83,14 +82,13 @@ public class AjouterCollaborateursController extends HttpServlet {
 			message = "Collaborateur crée avec succès";
 		}
 		
-		Collaborateur collabateur = new Collaborateur(matricule, nom, prenom, dtn, adresse, secu, emailPro, null, dhc, true);
-		collabService.sauvegarderCollaborateur(collabateur);
+		Collaborateur collaborateur = new Collaborateur(matricule, nom, prenom, dtn, adresse, secu, emailPro, null, dhc, true);
+		collabService.sauvegarderCollaborateur(collaborateur);
 		
 		
 		/* Transmission à la page JSP en charge de l'affichage des données */		
 		
 		resp.sendRedirect("lister");
-		
-		
+
 	}
 }

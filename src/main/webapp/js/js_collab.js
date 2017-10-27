@@ -64,6 +64,7 @@ $(document).ready(function() {
                     validators: {
                         integer: {
                             min: 15,
+                            max: 15,
                             message: 'Il vous faut mettre les 15 chiffres de votre carte vital',
                         },
                         notEmpty: {

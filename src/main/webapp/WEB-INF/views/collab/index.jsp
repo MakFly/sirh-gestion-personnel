@@ -26,15 +26,13 @@
     <!-- Custom styles for this template -->
     <link href="../../sgp/styles.css" rel="stylesheet">
     
-    <script>
-    	
-    </script>
+  
 </head>
 
 <body>
 
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-        <a class="navbar-brand" href="#">Login</a>
+        <a class="navbar-brand" href="lister">Login</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -42,7 +40,7 @@
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="Edit_Banque.html">Collaborateur <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="edit">Collaborateur <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="statistique.html">Statistique</a>
@@ -101,7 +99,6 @@
     <!-- Partie Milieu -->
     <div class="container">
         <div class="row">
-        
 			<%
 				List<Collaborateur> list = (List<Collaborateur>) request.getAttribute("listeCollab");
 				for (Collaborateur col : list) {
@@ -119,15 +116,20 @@
 					</header>
 					<div class="card-block">
 						<div class="img-card">
-							<span class="img_left"><img src="//placehold.it/150x80"
-								alt="Movie" class="w-100" /></span><span class="right"></span> <span
-								class="left">Fonction</span><span class="right"></span> <span
-								class="left">Département <%= col.getAdresse() %></span><span class="right"></span> <span
-								class="left">Email <%= col.getNom() %>.<%= col.getPrenom() %> <%= col.getEmailPro() %></span><span class="right"></span> <span
-								class="left">Téléphone </span><span class="right"></span>
+							<span class="img_left"><img src="//placehold.it/150x80" alt="Movie" class="w-100" /></span><span class="right"></span> 
+							<span class="left">Fonction <%=col.getIntitulePoste() %></span><span class="right"></span> 
+							<% 	if (col.getDepartement()!=null){ %>
+								<span class="left">Département <%= col.getDepartement().getNom() %></span><span class="right"></span> 
+							<%	} 
+							else {%>
+								<span class="left">Département non défini</span><span class="right"></span> 
+							<% } %>
+							<span class="left">Email <%= col.getNom() %>.<%= col.getPrenom() %> <%= col.getEmailPro() %></span>
+							<span class="right"></span> 
+							<span class="left">Téléphone <%= col.getTelephone() %></span><span class="right"></span>
 						</div>
 
-						<a href="#" class="btn btn-primary btn-block"><i
+						<a href="<%=request.getContextPath()%>/collaborateurs/editer?matricule=<%=col.getMatricule()%>"  class="btn btn-primary btn-block"><i
 							class="fa fa-eye"></i> Editer</a>
 					</div>
 				</article>
