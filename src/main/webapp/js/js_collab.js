@@ -4,18 +4,19 @@ $(document).ready(function() {
         inst.validate()
         if (inst.isValid()) {
             e.preventDefault();
-            var saisie_nom = localStorage.getItem('nom');
-            var saisie_prenom = localStorage.getItem('prenom');
-            var saisie_dtn = localStorage.getItem('date_naissance');
-            var saisie_adresse = localStorage.getItem('adresse');
-            var saisie_secu = localStorage.getItem('secu');
+            //Passage au localStorage pour l'enregistrement local            
+            var saisie_nom 		= localStorage.getItem('nom');
+            var saisie_prenom 	= localStorage.getItem('prenom');
+            var saisie_dtn 		= localStorage.getItem('date_naissance');
+            var saisie_adresse 	= localStorage.getItem('adresse');
+            var saisie_secu 	= localStorage.getItem('secu');
 
             $('#nomModal').attr('value', saisie_nom);
             $('#prenomModal').attr('value', saisie_prenom);
             $('#dtnModal').attr('value', saisie_dtn);
             $('#adrModal').attr('value', saisie_adresse);
             $('#secuModal').attr('value', saisie_secu);
-
+            
 
             $("#myModal").modal('show');
         } else {
@@ -62,8 +63,8 @@ $(document).ready(function() {
                 secu: {
                     validators: {
                         integer: {
-                            min: 13,
-                            message: 'Il vous faut mettre les 13 chiffres de votre carte vital',
+                            min: 15,
+                            message: 'Il vous faut mettre les 15 chiffres de votre carte vital',
                         },
                         notEmpty: {
                             message: 'Le numéro de sécurité social est obligatoire'

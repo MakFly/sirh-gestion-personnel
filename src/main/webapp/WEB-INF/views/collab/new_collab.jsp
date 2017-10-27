@@ -30,6 +30,23 @@
     <!-- javascript collab (modal + alert) -->
     <script src="../../sgp/js/js_collab.js"></script>
 
+	<script>
+         function enregistrer() //enregistrer les options, fonction appelée par le click sur le bouton
+        {
+        	 /* localStorage['matricule']		= document.getElementById('matricule').value; */
+        	 localStorage['nom'] 			= document.getElementById('nom').value;
+             localStorage['prenom'] 		= document.getElementById('prenom').value;
+             localStorage['date_naissance'] = document.getElementById('date_naissance').value;
+             localStorage['adresse'] 		= document.getElementById('adresse').value;
+             localStorage['secu'] 			= document.getElementById('secu').value; 
+        }
+         
+        function valider()
+        {
+        	document.forms[0].submit();
+        }
+    </script>
+
 </head>
 
 <body>
@@ -62,12 +79,7 @@
         <div class="row">
             <div class="col">
                 <h1>Nouveau Collaborateurs</h1>
-                <form id="addForm" role="form" data-toggle="validator">
-                    <!-- <span class="left_add_collab">Nom</span><span class="right"></span><input type="text" class="form-controle" id="nom" name="nom">
-                        <span class="left_add_collab">PrÃ©nom</span><span class="right"></span><input type="text" class="form-controle" id="prenom" name="prenom">
-                        <span class="left_add_collab">Date de naissance</span><span class="right"></span><input type="text" class="form-controle" id="dtn" name="dtn">
-                        <span class="left_add_collab">Adresse</span><span class="right"></span><textarea class="form-controle" id="adresse"></textarea>
-                        <span class="left_add_collab">NumÃ©ro de sÃ©curitÃ© sociale</span><span class="right"></span><input type="text" id="secu" class="form-controle" name="secu"> -->
+                <form id="addForm" role="form" method="POST" action="<%=request.getContextPath()+"/collaborateurs/ajouter"%>" data-toggle="validator">
                     <br>
 
                     <fieldset>
@@ -75,7 +87,7 @@
                         <div class="form-group">
                             <div class="col-md-10 inputGroupContainer">
                                 <div class="input-group">
-                                    <span class="left_add_collab">Nom</span><span class="right"></span><input id="nom" name="nom" onchange="sessionStorage.nom=this.value" placeholder="Nom" class="form-controle" type="text">
+                                    <span class="left_add_collab">Nom</span><span class="right"></span><input id="nom" name="nom"  placeholder="Nom" class="form-controle" type="text">
                                 </div>
                             </div>
                         </div>
@@ -99,7 +111,7 @@
                         <div class="form-group">
                             <div class="col-md-10 inputGroupContainer">
                                 <div class="input-group">
-                                    <span class="left_add_collab">Date de naissance</span><span class="right"></span><input id="date_naissance" name="date_naissance" placeholder="Date de naissance" class="form-controle" type="text">
+                                    <span class="left_add_collab">Date de naissance</span><span class="right"></span><input id="date_naissance" name="date_naissance" placeholder="Date de naissance" class="form-controle" type="date">
                                 </div>
                             </div>
                         </div>
@@ -135,20 +147,20 @@
                             </div>
                             <div class="modal-body">
                                 Vous êtes sur le point de crée un nouveau Collaborateur :<br>
-                                <span class="left_add_collab_modal">Nom</span><span class="right"></span><input id="nomModal" disabled="disabled" type="text" class="form-controle-collab-modal" value="" name="nom">
+                                <span class="left_add_collab_modal">Nom</span><span class="right"></span><input id="nomModal" disabled="disabled" type="text" class="form-controle-collab-modal" name="nom">
                                 <span class="left_add_collab_modal">Prénom</span><span class="right"></span><input id="prenomModal" disabled="disabled" type="text" class="form-controle-collab-modal" name="prenom">
-                                <span class="left_add_collab_modal">Date de naissance</span><span class="right"></span><input id="dtnModal" disabled="disabled" type="text" class="form-controle-collab-modal" name="dtn">
-                                <span class="left_add_collab_modal">Adresse</span><span class="right"></span><textarea id="adrModal" disabled="disabled" class="form-controle-collab-modal"></textarea>
+                                <span class="left_add_collab_modal">Date de naissance</span><span class="right"></span><input id="dtnModal" disabled="disabled" type="text" class="form-controle-collab-modal" name="date_naissance">
+                                <span class="left_add_collab_modal">Adresse</span><span class="right"></span><!-- <textarea id="adrModal" disabled="" class="form-controle-collab-modal" name="adrModal"></textarea> --><input id="adrModal" disabled="disabled" type="text" class="form-controle-collab-modal" name="adresse">
                                 <span class="left_add_collab_modal">Numéro de sécurité sociale</span><span class="right"></span><input id="secuModal" disabled="disabled" type="text" class="form-controle-collab-modal" name="secu">
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-                                <button type="button" class="btn btn-primary">Confirmer</button>
+                                <button type="button" onclick="valider()" class="btn btn-primary">Confirmer</button>
                             </div>
                         </div>
                     </div>
                 </div>
-
+				<!-- Modal -->
 
             </div>
         </div>

@@ -1,5 +1,8 @@
+<%@page import="entite.Collaborateur"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!doctype html>
 <html lang="fr">
 
@@ -21,6 +24,10 @@
     <script src="../../sgp/js/jquery-3.2.1.min.js"></script>
     <!-- Custom styles for this template -->
     <link href="../../sgp/styles.css" rel="stylesheet">
+    
+    <script>
+    	
+    </script>
 </head>
 
 <body>
@@ -51,7 +58,8 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-6">
-                <a id="add_collabo" class="btn btn-primary" href="<%=request.getContextPath()+"/collaborateurs/ajouter"%>" role="button">Ajouter un nouveau Collaborateur</a>
+                <%-- <a id="add_collabo" class="btn btn-primary" href="<%=request.getContextPath()+"/collaborateurs/ajouter"%>" role="button">Ajouter un nouveau Collaborateur</a> --%>
+                <a id="add_collabo" class="btn btn-primary" href="<c:url value='/collaborateurs/ajouter'/>" role="button">Ajouter un nouveau Collaborateur</a>
             </div>
         </div>
 
@@ -80,16 +88,6 @@
                 </p>
 
 
-				<ul>
-					<%
-						List<String> listeNoms = (List<String>) request.getAttribute("listeNoms");
-						for (String nom : listeNoms) {
-					%>
-						<li><%=nom%></li>
-					<%
-						}
-					%>
-				</ul>
 			</div>
         </div>
     </div>
@@ -97,7 +95,42 @@
     <!-- Partie Milieu -->
     <div class="container">
         <div class="row">
-            <div class="col-md-4">
+        
+			<%
+				List<Collaborateur> list = (List<Collaborateur>) request.getAttribute("listeCollab");
+				for (Collaborateur col : list) {
+			%>
+			<div class="col-md-4">
+				<article class="card">
+					<header class="title-header">
+						<h3>
+							<%=col.getNom()%>
+							<%=col.getPrenom()%>
+							<%=col.getMatricule()%>
+							<%-- <%=col.getDhc()%> --%>
+						</h3>
+						<hr class="separateur">
+					</header>
+					<div class="card-block">
+						<div class="img-card">
+							<span class="img_left"><img src="//placehold.it/150x80"
+								alt="Movie" class="w-100" /></span><span class="right"></span> <span
+								class="left">Fonction</span><span class="right"></span> <span
+								class="left">Département <%= col.getAdresse() %></span><span class="right"></span> <span
+								class="left">Email <%= col.getNom() %>.<%= col.getPrenom() %> <%= col.getEmailPro() %></span><span class="right"></span> <span
+								class="left">Téléphone </span><span class="right"></span>
+						</div>
+
+						<a href="#" class="btn btn-primary btn-block"><i
+							class="fa fa-eye"></i> Editer</a>
+					</div>
+				</article>
+			</div>
+			<%
+					}
+				%>
+			
+			<!-- <div class="col-md-4">
                 <article class="card">
                     <header class="title-header">
                         <h3>Nom Prénom</h3>
@@ -115,104 +148,7 @@
                         <a href="#" class="btn btn-primary btn-block"><i class="fa fa-eye"></i> Editer</a>
                     </div>
                 </article>
-            </div>
-            <div class="col-md-4">
-                <article class="card">
-                    <header class="title-header">
-                        <h3>Nom Prénom</h3>
-                        <hr class="separateur">
-                    </header>
-                    <div class="card-block">
-                        <div class="img-card">
-                            <span class="img_left"><img src="//placehold.it/150x80" alt="Movie" class="w-100" /></span><span class="right"></span>
-                            <span class="left">Fonction</span><span class="right"></span>
-                            <span class="left">Département</span><span class="right"></span>
-                            <span class="left">Email</span><span class="right"></span>
-                            <span class="left">Téléphone</span><span class="right"></span>
-                        </div>
-
-                        <a href="#" class="btn btn-primary btn-block"><i class="fa fa-eye"></i> Editer</a>
-                    </div>
-                </article>
-            </div>
-            <div class="col-md-4">
-                <article class="card">
-                    <header class="title-header">
-                        <h3>Nom Prénom</h3>
-                        <hr class="separateur">
-                    </header>
-                    <div class="card-block">
-                        <div class="img-card">
-                            <span class="img_left"><img src="//placehold.it/150x80" alt="Movie" class="w-100" /></span><span class="right"></span>
-                            <span class="left">Fonction</span><span class="right"></span>
-                            <span class="left">Département</span><span class="right"></span>
-                            <span class="left">Email</span><span class="right"></span>
-                            <span class="left">Téléphone</span><span class="right"></span>
-                        </div>
-
-                        <a href="#" class="btn btn-primary btn-block"><i class="fa fa-eye"></i> Editer</a>
-                    </div>
-                </article>
-            </div>
-            <div class="col-md-4">
-                <article class="card">
-                    <header class="title-header">
-                        <h3>Nom Prénom</h3>
-                        <hr class="separateur">
-                    </header>
-                    <div class="card-block">
-                        <div class="img-card">
-                            <span class="img_left"><img src="//placehold.it/150x80" alt="Movie" class="w-100" /></span><span class="right"></span>
-                            <span class="left">Fonction</span><span class="right"></span>
-                            <span class="left">Département</span><span class="right"></span>
-                            <span class="left">Email</span><span class="right"></span>
-                            <span class="left">Téléphone</span><span class="right"></span>
-                        </div>
-
-                        <a href="#" class="btn btn-primary btn-block"><i class="fa fa-eye"></i> Editer</a>
-                    </div>
-                </article>
-            </div>
-            <div class="col-md-4">
-                <article class="card">
-                    <header class="title-header">
-                        <h3>Nom Prénom</h3>
-                        <hr class="separateur">
-                    </header>
-                    <div class="card-block">
-                        <div class="img-card">
-                            <span class="img_left"><img src="//placehold.it/150x80" alt="Movie" class="w-100" /></span><span class="right"></span>
-                            <span class="left">Fonction</span><span class="right"></span>
-                            <span class="left">Département</span><span class="right"></span>
-                            <span class="left">Email</span><span class="right"></span>
-                            <span class="left">Téléphone</span><span class="right"></span>
-                        </div>
-                        <!-- <p class="tagline card-text text-xs-center">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p> -->
-                        <a href="#" class="btn btn-primary btn-block"><i class="fa fa-eye"></i> Editer</a>
-                    </div>
-                </article>
-            </div>
-            <div class="col-md-4">
-                <article class="card">
-                    <header class="title-header">
-                        <h3>Nom Prénom</h3>
-                        <hr class="separateur">
-                    </header>
-                    <div class="card-block">
-                        <div class="img-card">
-                            <!-- <img src="//placehold.it/300x250" alt="Movie" class="w-100" /> -->
-                            <!-- <p id="card">Fonction :<br> DÃ©partement : <br> Email : <br> TÃ©lÃ©phone :</p> -->
-                            <span class="img_left"><img src="//placehold.it/150x80" alt="Movie" class="w-100" /></span><span class="right"></span>
-                            <span class="left">Fonction</span><span class="right"></span>
-                            <span class="left">Département</span><span class="right"></span>
-                            <span class="left">Email</span><span class="right"></span>
-                            <span class="left">Téléphone</span><span class="right"></span>
-                        </div>
-                        <!-- <p class="tagline card-text text-xs-center">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p> -->
-                        <a href="#" class="btn btn-primary btn-block"><i class="fa fa-eye"></i> Editer</a>
-                    </div>
-                </article>
-            </div>
+            </div> -->
         </div>
     </div>
     <!-- /.container -->

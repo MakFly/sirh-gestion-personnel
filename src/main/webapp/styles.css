@@ -44,7 +44,7 @@ input[type=checkbox] {
 .left {
     display: inline-block;
     margin-left: 5%;
-    width: 50%;
+    width: 100%;
 }
 
 .card-block {
