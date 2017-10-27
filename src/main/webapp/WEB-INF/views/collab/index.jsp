@@ -1,4 +1,5 @@
 <%@page import="entite.Collaborateur"%>
+<%@page import="entite.Departement"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -81,9 +82,14 @@
                     Filtrer par département :
                     <select class="form-control-sm">
                         <option>Tous</option>
-                        <option>Comptabilité</option>
-                        <option>Ressources Humaines</option>
-                        <!-- <option>Informatique</option> -->
+                        <%
+							List<Departement> listDept = (List<Departement>) request.getAttribute("listeDept");
+							for (Departement dept : listDept) {
+						%>
+							<option><%=dept.getNom() %></option>
+						<%
+							}
+						%>
                     </select>
                 </p>
 

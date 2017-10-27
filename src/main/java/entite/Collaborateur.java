@@ -23,7 +23,8 @@ public class Collaborateur {
 	String photo;
 	LocalDateTime dhc;
 	Boolean actif;
-	
+	String intitulePoste;
+	Departement departement;
 	
 	
 	public Collaborateur(String matricule, String nom, String prenom, LocalDate dtn, String adresse, String secu,
@@ -100,5 +101,21 @@ public class Collaborateur {
 	}
 	public void setActif(Boolean actif) {
 		this.actif = actif;
+	}
+	
+	public String getIntitulePoste() {
+		return intitulePoste;
+	}
+
+	public void setIntitulePoste(String intitulePoste) {
+		this.intitulePoste = intitulePoste;
+	}
+
+	public Departement getDepartement() {
+		return departement;
+	}
+
+	public void setDepartement(Departement departement) {
+		this.departement = departement;
 	}
 }

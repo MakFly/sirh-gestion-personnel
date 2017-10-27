@@ -4,6 +4,7 @@
 package util;
 
 import service.CollaborateurService;
+import service.DepartementService;
 
 /**
  * @author kevin
@@ -12,7 +13,6 @@ import service.CollaborateurService;
 public interface Constantes {
 	// constante a ajouter
 	CollaborateurService COLLAB_SERVICE = new CollaborateurService();
-	
-
+	DepartementService DEPT_SERIVCE		= new DepartementService();
 
 }
