@@ -26,6 +26,12 @@
     <!-- Custom styles for this template -->
     <link href="../../sgp/styles.css" rel="stylesheet">
     
+    <script type="text/javascript">
+	    function valider() 
+	    {
+			document.forms[0].submit();
+		}
+    </script>
   
 </head>
 
@@ -71,18 +77,20 @@
                 <h1>Les Collaborateurs</h1>
                 <p>
                     Rechercher un nom ou prénom qui commence par : <input type="text" class="form-control-sm" name="name"> &nbsp&nbsp&nbsp
-                    <button type="submit" class="btn btn-primary">Rechercher</button>
+                    <form method="POST" action="<%=request.getContextPath()%>/collaborateurs/filtrer"><button type="submit" onclick="valider()" class="btn btn-primary">Rechercher</button>
                     <input class="form-check-input" type="checkbox" value=""> &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Voir les Collaborateurs désactivés
 
                 </p>
 
+				<!-- Filtrer par département -->
                 <p id="col_colla">
                     Filtrer par département :
-                    <select class="form-control-sm">
+                    <select class="form-control-sm" name="nomDept">
                         <option>Tous</option>
                         <%
 							List<Departement> listDept = (List<Departement>) request.getAttribute("listeDept");
-							for (Departement dept : listDept) {
+							for (Departement dept : listDept) 
+							{
 						%>
 							<option><%=dept.getNom() %></option>
 						<%
@@ -91,7 +99,7 @@
                     </select>
                 </p>
 
-
+				</form>
 			</div>
         </div>
     </div>
@@ -102,6 +110,7 @@
 			<%
 				List<Collaborateur> list = (List<Collaborateur>) request.getAttribute("listeCollab");
 				for (Collaborateur col : list) {
+					
 			%>
 			<div class="col-md-4">
 				<article class="card">

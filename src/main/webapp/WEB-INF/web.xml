@@ -23,6 +23,10 @@
 		<servlet-class>web.EditerCollaborateurController</servlet-class>
 	</servlet>
 	
+	<servlet>
+		<servlet-name>filtrageCollaborateurController</servlet-name>
+		<servlet-class>web.filtrageCollaborateurController</servlet-class>
+	</servlet>
 	
 	
 	<servlet-mapping>
@@ -38,6 +42,11 @@
 	<servlet-mapping>
 		<servlet-name>EditerCollaborateurController</servlet-name>
 		<url-pattern>/collaborateurs/editer</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>filtrageCollaborateurController</servlet-name>
+		<url-pattern>/collaborateurs/filtrer</url-pattern>
 	</servlet-mapping>
 	
 	
