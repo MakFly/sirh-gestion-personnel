@@ -34,11 +34,7 @@ public class ListerCollaborateursController extends HttpServlet {
 		// utilisation du service
 		List<Collaborateur> collaborateurs 	= collabService.listerCollaborateurs();
 		List<Departement> departements 		= deptService.listeDepartements();
-		
-//		LocalDateTime dateT = LocalDateTime.of(2017, 11, 8, 23, 8, 1);
-//		LocalDate date = LocalDate.of(1992, 12, 14);
-		
-		//collaborateurs.add(new Collaborateur("007", "Bond", "James", null, "Londre", "123654789654789", "bond.james@london.eu", "test", dateT, true));
+	
 		
 		/*
 		 * Si le champs select == 0 alors on implémente sinon on ne fait rien

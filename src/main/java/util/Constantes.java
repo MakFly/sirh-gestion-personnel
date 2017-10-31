@@ -8,11 +8,18 @@ import service.DepartementService;
 
 /**
  * @author kevin
- *
+ * @Interface Constantes
  */
 public interface Constantes {
-	// constante a ajouter
+	
+	/**
+	 * @param Collab_service
+	 */
 	CollaborateurService COLLAB_SERVICE = new CollaborateurService();
+	
+	/**
+	 * @param Dept_service
+	 */
 	DepartementService DEPT_SERIVCE		= new DepartementService();
 
 }

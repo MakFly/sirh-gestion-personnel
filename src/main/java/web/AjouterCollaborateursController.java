@@ -18,12 +18,23 @@ import entite.Collaborateur;
 import service.CollaborateurService;
 import util.Constantes;
 
+/**
+ * 
+ * @author kevin
+ * @Classe AjouterCollaborateurController
+ */
 @SuppressWarnings("serial")
 public class AjouterCollaborateursController extends HttpServlet {
 	
+	/**
+	 * @param CollabService
+	 */
 	private CollaborateurService collabService = Constantes.COLLAB_SERVICE;
 	static int compteur = 0;
 	
+	/**
+	 * @Method doGet 
+	 */
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws
 	ServletException, IOException {
@@ -32,6 +43,9 @@ public class AjouterCollaborateursController extends HttpServlet {
 		.forward(req, resp);
 	}
 	
+	/**
+	 * @Method doPost
+	 */
 	@SuppressWarnings("null")
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws
 	ServletException, IOException {

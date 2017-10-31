@@ -1,0 +1,211 @@
+/* pour les id utiliser le # && pour les class utiliser le . */
+
+body {
+    padding-top: 5rem;
+}
+
+.starter-template {
+    padding: 3rem 1.5rem;
+    text-align: center;
+}
+
+
+/* Partie Index.html */
+
+#add_collabo {
+    margin-left: 1040px;
+}
+
+#col_colla {
+    margin-left: 193px;
+}
+
+input[type=checkbox] {
+    margin-top: 13px;
+    margin-left: 80px;
+}
+
+.card {
+    margin-top: 30px;
+    padding-top: 5%;
+}
+
+
+/* Intérieur de l'article */
+
+.img_left {
+    display: inline-block;
+    margin-bottom: 5%;
+    margin-top: -10%;
+    margin-left: 5%;
+    width: 90%;
+}
+
+.left {
+    display: inline-block;
+    margin-left: 5%;
+    width: 100%;
+}
+
+.card-block {
+    padding-top: 10%;
+    padding-bottom: 10%
+}
+
+.btn-block {
+    position: relative;
+    width: 30%;
+    margin-top: 10%;
+    margin-right: 5%;
+    float: right;
+}
+
+
+/* Partie Index.html */
+
+
+/* Partie Add collaborateur & Banque */
+
+.left_add_collab {
+    display: inline-block;
+    margin-left: 5%;
+    padding-bottom: 3%;
+    width: 50%;
+}
+
+.btn_add_banque {
+    margin-left: 284%;
+}
+
+.btn_add {
+    margin-left: 234.5%;
+}
+
+[required] {
+    border: 2px dotted orange;
+}
+
+.desactiver {
+    margin-top: 1.5%;
+}
+
+.form-inline .form-check-input-edit {
+    position: relative;
+    margin-top: 0;
+    margin-right: .25rem;
+    /* margin-left: 0; */
+}
+
+.form-controle {
+    width: 60%;
+    margin-left: -17%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-image: none;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+#addForm .has-error .control-label,
+#addForm .has-error .help-block,
+#addForm .has-error .form-control-feedback {
+    color: #f39c12;
+    margin-left: 38%;
+}
+
+#addForm .has-success .control-label,
+#addForm .has-success .help-block,
+#addForm .has-success .form-control-feedback {
+    color: #18bc9c;
+}
+
+.left_add_collab_modal {
+    display: inline-block;
+    /* margin-left: 5%; */
+    padding-bottom: 3%;
+    width: 70%;
+}
+
+.form-controle-collab-modal {
+    width: 50%;
+    margin-left: -20%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-image: none;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    margin-top: 5%;
+}
+
+
+/* Partie collab.html */
+
+.card_edit {
+    margin-top: 0px;
+    padding-top: 0%;
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, .125);
+    border-radius: .25rem;
+}
+
+button[type=button] {
+    -webkit-appearance: button;
+    margin-left: 86%;
+    margin-top: 1%;
+}
+
+.form-controle-collab {
+    width: 50%;
+    margin-left: -20%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-image: none;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+
+/* Fichier Edit.html */
+
+.left_edit {
+    display: inline-block;
+    margin-left: 30%;
+    padding-bottom: 3%;
+    width: 50%;
+}
+
+.form-edit {
+    margin-left: -20.5%;
+    width: 49.8%;
+}
+
+
+/* Fichier edit_poste.html */
+
+.form-edit_poste {
+    margin-left: -30.7%;
+    width: 50%;
+}

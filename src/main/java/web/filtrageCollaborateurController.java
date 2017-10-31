@@ -20,17 +20,30 @@ import util.Constantes;
 
 /**
  * @author kevin
- *
+ * @Classe Filtrage Collaborateur Controller
  */
 public class filtrageCollaborateurController extends HttpServlet {
 
+	/**
+	 * @Objet collabservice 
+	 */
 	private CollaborateurService collabservice = Constantes.COLLAB_SERVICE;
+	
+	/**
+	 * @objet deptService
+	 */
 	private DepartementService deptService		= Constantes.DEPT_SERIVCE;
 	
+	/**
+	 * @Servlet doPost
+	 */
 	@SuppressWarnings("null")
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws
 	ServletException, IOException {
 		
+		/**
+		 * @List des départements
+		 */
 		List<Departement> departements 		= deptService.listeDepartements();
 		if(departements.size() == 0)
 		{
@@ -42,6 +55,10 @@ public class filtrageCollaborateurController extends HttpServlet {
 	
 		req.setAttribute("listeDept", departements);
 		
+		/*
+		 * @param nomDept
+		 * Permettant de récupéré le nom du département
+		 */
 		String nomDept = req.getParameter("nomDept");
 		List<Collaborateur> listeFiltree = collabservice.listerCollaborateurs()
 			.stream()

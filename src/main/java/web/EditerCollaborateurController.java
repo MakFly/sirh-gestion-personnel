@@ -21,20 +21,44 @@ import service.CollaborateurService;
 import service.DepartementService;
 import util.Constantes;
 
+/**
+ * 
+ * @author kevin
+ * @Classe EditerCollaborateurController
+ */
 @SuppressWarnings("serial")
 public class EditerCollaborateurController extends HttpServlet {
 	
+	/**
+	 * @param CollaborateurService
+	 */
 	private CollaborateurService collabService 	= Constantes.COLLAB_SERVICE;
+	
+	/**
+	 * @param DepartementService
+	 */
 	private DepartementService deptService		= Constantes.DEPT_SERIVCE;
 	
+	/**
+	 * @Method doGet 
+	 */
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws
 	ServletException, IOException {
 		
-		// utilisation du service
+		/**
+		 * @List des collaborateurs 
+		 */
 		List<Collaborateur> collaborateurs 	= collabService.listerCollaborateurs();
+		
+		/**
+		 * @List des departements 
+		 */
 		List<Departement> departements 		= deptService.listeDepartements();
 		
+		/**
+		 * @param matricule
+		 */
 		String matricule = req.getParameter("matricule");
 	
 		for (Collaborateur collaborateur : collaborateurs) 
@@ -46,19 +70,25 @@ public class EditerCollaborateurController extends HttpServlet {
 			
 		}
 		
+		/**
+		 * @Init des département si la taille du département == 0
+		 */
 		if(departements.size() == 0)
 		{
 			departements.add(new Departement(1, "Comptabilité"));
 			departements.add(new Departement(2, "Ressources Humaines"));
 			departements.add(new Departement(3, "Informatique"));
 			departements.add(new Departement(4, "Administratif"));
-		}	
+		}
 		
 		req.setAttribute("listeDept", departements);
 		req.getRequestDispatcher("/WEB-INF/views/collab/Edit_Banque.jsp")
 		.forward(req, resp);
 	}
 	
+	/**
+	 * @Method doPost
+	 */
 	@SuppressWarnings("null")
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws
 	ServletException, IOException {
@@ -99,8 +129,18 @@ public class EditerCollaborateurController extends HttpServlet {
 			message = "Collaborateur mis à jour avec succès";
 		}
 		
-//		Collaborateur collaborateur = new Collaborateur(matricule, adresse, intitulePoste, depart, null, null, null);
 		
+		/**
+		 * @BoucleFor
+		 * La boucle permet d'afficher la liste des collaborateurs par 
+		 * Matricule
+		 * Adresse
+		 * intitule de poste
+		 * departement
+		 * telephone
+		 * bic
+		 * iban
+		 */
 		for (Collaborateur collab: collabService.listerCollaborateurs()) {
 			if (collab.getMatricule().equals(matricule)) {
 				collab.setAdresse(adresse);

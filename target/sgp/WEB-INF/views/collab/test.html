@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Zozor options</title>
+    <style>
+
+    </style>
+    <script>
+        function restaurerLesOptions() //resélectionner les options déja choisies
+        {
+            document.getElementById('nom').value = localStorage['nom']; //remplissage du champs de nom
+            var couleur = localStorage['couleur']; //sélection de la liste déroulante de couleur (un peu plus dur)
+            if (!couleur) {
+                return;
+            }
+            var choix = document.getElementById('couleur').getElementsByTagName('option');
+            for (var i = 0; i < choix.length; i++) {
+                if (choix[i].value == couleur) {
+                    choix[i].selected = "true";
+                    break;
+                }
+            }
+        }
+
+        function enregistrer() //enregistrer les options, fonction appelée par le click sur le bouton
+        {
+            localStorage['nom'] = document.getElementById('nom').value;
+            localStorage['couleur'] = document.getElementById('couleur').value;
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Options de l'extension</h1>
+    <label for="nom">Nom</label><input type="text" name="nom" id="nom" />
+    <label for="nom">Couleur préférée</label>
+    <select name="couleur" id="couleur">
+		<option value="green">vert</option>
+		<option value="red">rouge</option>
+		<option value="blue">bleu</option>
+		<option value="white">blanc</option>
+		<option value="white">gris</option>
+		</select>
+    <input type="button" onclick="enregistrer()" value="enregistrer" />
+
+
+    <script>
+        restaurerLesOptions(); //au chargement de la page, on restaure les options
+    </script>
+</body>
+
+</html>
