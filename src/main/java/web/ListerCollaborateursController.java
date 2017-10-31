@@ -24,8 +24,8 @@ import util.Constantes;
 public class ListerCollaborateursController extends HttpServlet {
 	
 	// recuperation du service
-	private CollaborateurService collabService 	= Constantes.COLLAB_SERVICE;
-	private DepartementService deptService		= Constantes.DEPT_SERIVCE;
+	private static CollaborateurService collabService 	= Constantes.COLLAB_SERVICE;
+	private static DepartementService deptService		= Constantes.DEPT_SERIVCE;
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws
@@ -39,7 +39,7 @@ public class ListerCollaborateursController extends HttpServlet {
 		/*
 		 * Si le champs select == 0 alors on implémente sinon on ne fait rien
 		 */
-		if(departements.size() == 0)
+		if(departements.isEmpty())
 		{
 			departements.add(new Departement(1, "Comptabilité"));
 			departements.add(new Departement(2, "Ressources Humaines"));

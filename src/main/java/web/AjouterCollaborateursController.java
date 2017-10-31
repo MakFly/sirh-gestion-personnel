@@ -29,7 +29,7 @@ public class AjouterCollaborateursController extends HttpServlet {
 	/**
 	 * @param CollabService
 	 */
-	private CollaborateurService collabService = Constantes.COLLAB_SERVICE;
+	private static CollaborateurService collabService = Constantes.COLLAB_SERVICE;
 	static int compteur = 0;
 	
 	/**
@@ -46,7 +46,7 @@ public class AjouterCollaborateursController extends HttpServlet {
 	/**
 	 * @Method doPost
 	 */
-	@SuppressWarnings("null")
+	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws
 	ServletException, IOException {
 		
@@ -85,15 +85,16 @@ public class AjouterCollaborateursController extends HttpServlet {
 		ResourceBundle bundle 	= ResourceBundle.getBundle("application");
 		String emailPro			= bundle.getString("suffixe.emailPro");
 		
-		String message ="";
-		
 		if(matricule.isEmpty() || nom.isEmpty() || prenom.isEmpty() || adresse.isEmpty() || secu.isEmpty() )
 		{
-			resp.sendError(400);
-		}
-		else
-		{
-			message = "Collaborateur crée avec succès";
+			try 
+			{
+				resp.sendError(400);
+			} 
+			catch (Exception e) 
+			{
+				System.out.println(e.getMessage());
+			}
 		}
 		
 		Collaborateur collaborateur = new Collaborateur(matricule, nom, prenom, dtn, adresse, secu, emailPro, null, dhc, true);
@@ -101,8 +102,15 @@ public class AjouterCollaborateursController extends HttpServlet {
 		
 		
 		/* Transmission à la page JSP en charge de l'affichage des données */		
+		try 
+		{
+			resp.sendRedirect("lister");
+		} 
+		catch (Exception e) 
+		{
+			System.out.println(e.getMessage());
+		}
 		
-		resp.sendRedirect("lister");
 
 	}
 }

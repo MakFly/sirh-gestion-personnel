@@ -22,6 +22,7 @@ import util.Constantes;
  * @author kevin
  * @Classe Filtrage Collaborateur Controller
  */
+@SuppressWarnings("serial")
 public class filtrageCollaborateurController extends HttpServlet {
 
 	/**
@@ -37,7 +38,7 @@ public class filtrageCollaborateurController extends HttpServlet {
 	/**
 	 * @Servlet doPost
 	 */
-	@SuppressWarnings("null")
+	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws
 	ServletException, IOException {
 		
@@ -45,7 +46,7 @@ public class filtrageCollaborateurController extends HttpServlet {
 		 * @List des départements
 		 */
 		List<Departement> departements 		= deptService.listeDepartements();
-		if(departements.size() == 0)
+		if(departements.isEmpty())
 		{
 			departements.add(new Departement(1, "Comptabilité"));
 			departements.add(new Departement(2, "Ressources Humaines"));
